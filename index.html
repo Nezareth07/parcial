@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Patrón Fast Food</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">El Patrón Fast Food</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#menu">Menú</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#delivery">Domicilios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="jumbotron jumbotron-fluid text-center">
+        <div class="container d-flex flex-column align-items-center">
+            <div class="d-flex align-items-center">
+                <img src="imagenes/logo.png" class="logo mr-3" alt="Logo El Patrón Fast Food">
+                <h1 class="display-4">Bienvenidos a El Patrón Fast Food</h1>
+                <img src="imagenes/logo.png" class="logo ml-3" alt="Logo El Patrón Fast Food">
+            </div>
+            <p class="lead">Las mejores comidas rápidas en un solo lugar</p>
+        </div>
+    </header>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section text-center">
+        <div class="container">
+            <h2 class="mb-4">Nuestro Menú</h2>
+            <img src="imagenes/menu.jpeg" class="img-fluid menu-image" alt="Menú de El Patrón Fast Food">
+        </div>
+    </section>
+
+    <!-- Delivery Section -->
+    <section id="delivery" class="delivery-section">
+        <div class="container">
+            <h2 class="mb-4 text-center">Domicilios</h2>
+            <form id="delivery-form">
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" class="form-control" id="name" placeholder="Tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Dirección</label>
+                    <input type="text" class="form-control" id="address" placeholder="Tu dirección" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Teléfono</label>
+                    <input type="tel" class="form-control" id="phone" placeholder="Tu teléfono" required>
+                </div>
+                <div class="form-group">
+                    <label for="name_delivery">Nombre del pedido</label>
+                    <input type="text" class="form-control" id="name_delivery" placeholder="Nombre del pedido" required>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Cantidad</label>
+                    <input type="number" class="form-control" id="quantity" placeholder="Cantidad" required>
+                </div>
+                <button type="submit" class="btn btn-danger">Enviar Pedido</button>
+            </form>
+            <div id="confirmation-message" class="mt-3" style="display: none;">
+                <div class="alert alert-success" role="alert">
+                    Tu pedido se ha tomado, tiempo de espera <span id="wait-time"></span> minutos.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="text-center py-4">
+        <div class="container">
+            <h2 class="mb-4">Contacto</h2>
+            <div class="social-icons">
+                <a href="https://wa.me/tu-numero" class="btn btn-success" target="_blank">WhatsApp</a>
+                <a href="https://instagram.com/tu-perfil" class="btn btn-danger" target="_blank">Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer text-center py-3">
+        <div class="container">
+            <span>© 2024 El Patrón Fast Food</span>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Custom JS -->
+    <script>
+        document.getElementById('delivery-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Generate a random wait time between 15 and 45 minutes
+            var waitTime = Math.floor(Math.random() * 31) + 15;
+
+            // Display the confirmation message
+            document.getElementById('wait-time').textContent = waitTime;
+            document.getElementById('confirmation-message').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
